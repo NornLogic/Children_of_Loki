@@ -1,0 +1,24 @@
+#role: config file
+#named for: Mimir, individual known for his wisdom. Was beheded during the Aesir-
+#Vanir war. Odin used sedir - a magic associated with volvas (akin to witches) - to 
+#preserve his head so he could consult him. Remember to use your own as you set
+#your key:value pairs. 
+
+#to get query, go to SRA database (https://www.ncbi.nlm.nih.gov/sra), search for what you want
+#and collect everything in the 'Search details' box located on the right hand side of the
+#UI. make note of the number of samples in search results to confirm it's working correctly. 
+query: "((breast cancer[All Fields] AND rnaseq[All Fields]) OR (breast cancer[All Fields] AND RNAseq[All Fields]) OR (breast cancer[All Fields] AND RNA-seq[All Fields]) OR (breast cancer[All Fields] AND rna-seq[All Fields])) AND \"Homo sapiens\"[orgn] AND (cluster_public[prop] AND \"biomol rna\"[Properties] AND \"library layout paired\"[Properties] AND \"platform illumina\"[Properties] AND \"filetype fastq\"[Properties])"
+
+search_batch: 100
+retstart: 0
+batch_size: 20
+
+paths:
+  output_dir: "/home/rstudio/sra_output"
+  run_metadata: "run_metadata.csv"
+  biosample_metadata: "biosample_metadata.csv"
+  experiment_metadata: "experiment_metadata.csv"
+  skipped_sra_ids: "skipped_sra_ids.csv"
+  skipped_biosamples: "skipped_biosamples.csv"
+  experiment_metadata: "experiment_metadata.csv"
+  skipped_experiments: "skipped_experiments.csv"
